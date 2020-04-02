@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start"><ion-back-button></ion-back-button></ion-buttons>
+    <ion-searchbar
+      (ionChange) = "searchChange($event)"
+      placeholder="Search..."
+      inputmode="text"
+      [debounce]="300"
+    ></ion-searchbar>
+    <!-- <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="filter_items" >
+  <ion-list >
+    <ion-item *ngFor="let item of filter_items">
+      <h5>{{ item.dummy_text }}</h5>
+    </ion-item>
+  </ion-list>
+
+  <!-- <button ion-button (click)="insertRow()">
+    insertRow
+  </button> -->
+</ion-content>
+<ion-content *ngIf="!filter_items" center text-center class="search-emtpy">
+  <p>
+    Try Searching Terms.
+  </p>
+</ion-content>
