@@ -44,8 +44,8 @@ class DocumentSearch():
         keyword = []
         cursor, db = self.initialize_database()
 
-        dropTable = "drop table enrondata1"
-        cursor.execute(dropTable)
+        # dropTable = "drop table enrondata1"
+        # cursor.execute(dropTable)
 
         createTable = "CREATE VIRTUAL TABLE IF NOT EXISTS enrondata1 USING fts3(content TEXT)"
         # createTable = "CREATE VIRTUAL TABLE email_data USING fts3(content TEXT, )"
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     document = DocumentSearch()
     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
     DATA_DIR = os.path.join(ROOT_DIR, 'skilling-j')
-    init_db = document.initialize_database()
+    # init_db = document.initialize_database()
     total_directories = document.get_directories(DATA_DIR)
     files = document.get_files(total_directories)
 
